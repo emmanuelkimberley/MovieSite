@@ -1,0 +1,64 @@
+<!-- used for SEARCH, CATEGORIES, FILMOGRAPHY, WATCHLIST -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<link rel="stylesheet" href="/static/stylecards.css" />
+    <%- include('include/_header')%>
+    <title><%= pageTitle %></title>
+        <style>
+      .banner {
+        background: url('<%= data.backdropSource %>') rgba(0, 0, 0, 0.8)
+          no-repeat center;
+        background-size: cover;
+        background-blend-mode: multiply;
+      }
+      /* width */
+      ::-webkit-scrollbar {
+        height: 8px;
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(170, 170, 170);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-md">
+      <div class="col-auto" id="mainContent">
+        <%- include('include/_spinner')%>
+        <%- include('include/_bannerProfile') %>
+        <div class="row">
+          <div class="col-6">
+            <%- include('include/_filters-profile') %>
+          </div>
+          <div class="col-6">
+            <%- include('include/_filtersAlt') %>
+          </div>
+        </div>
+
+        <div class="row" id='results'>
+          <div id='results'>
+            <% for (card of cardList) { %>
+              <%- include('include/_cardAlt', { card: card } )%>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <%- include('include/_footer')%>
+    </div>
+    <!-- Include header -->
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+  </body>
+</html>

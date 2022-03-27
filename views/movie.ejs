@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include/_header')%>
+    <title><%= movieData.title %></title>
+    <meta name='description' content='Watch <%= movieData.title %> online for free - <%= movieData.summary %>'>
+    <meta name='keywords' content='<%= movieData.title %> free streaming, watch <%= movieData.title %> online free, 123Movies, putlockers, <%= movieData.title %> full movie'>
+  
+    <style>
+      .banner {
+        background: url('<%= movieData.bannerBackdrop %>') rgba(0, 0, 0, 0.8)
+          no-repeat center;
+        background-size: cover;
+        background-blend-mode: multiply;
+      }
+      /* width */
+      ::-webkit-scrollbar {
+        height: 8px;
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(170, 170, 170);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+
+    <div id="mainContainer" class="container-fluid">
+      <!-- Container fluid start here -->
+      <div class="col-auto" id="mainContent">
+        
+        <%- include('include/_spinner')%>
+        <!-- FIX SPINNER AND INCLUDE -->
+
+        <!-- player -->
+        <%- include('include/_video', { data: movieData, servers: servers } ) %>
+        <!-- /player -->
+
+        <!-- SERVERS OPTIONS -->
+        <!-- /SERVERS OPTIONS -->
+
+        <!-- Movie card -->
+        <%- include('include/_banner-movie', { data: movieData }) %>
+        <!-- /Movie card -->
+      </div>
+
+      <!-- Container fluid ENDS here -->
+    </div>
+
+    <div class="container">
+      <!-- Regular container starts here -->
+
+      <div class="ad">
+        <!-- Ad starts here -->
+        <!-- Ad ENDS here -->
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-3">
+          <!-- Movie budget Original Language, revenu -->
+          <%- include('include/_infoCard-movies')%>
+        </div>
+        <div class="col-12 col-lg-9 castHolder">
+          <%- include('include/_cast', { castList: movieData.cast } )%>
+        </div>
+      </div>
+
+      <div class="similar">
+        <%- include('include/_posterBlockAlt', { posters: movieData.similar } )%>
+      </div>
+
+      <!-- footer starts here -->
+      <%- include('include/_footer')%>
+      <!-- footer ENDS here -->
+
+      <!-- Regular container ENDS here -->
+    </div>
+
+    <script type="module" src="/static/watchedHandlerMovies.js"></script>
+    <!-- Include scripts -->
+    <%- include('include/_scripts')%>
+    <!-- /Include scripts -->
+  </body>
+</html>

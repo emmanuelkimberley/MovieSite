@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800");
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  color: white;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  color: rgb(196, 196, 196);
+  text-decoration-line: none;
+  transition: all 0.1s linear;
+}
+a:hover {
+  color: rgb(136, 133, 133);
+}
+
+#mainContainer {
+  margin-top: 3.5rem;
+}
+
+#results {
+  min-height: 75vh;
+}
+/* END OF SITE WIDE CSS */
+
+/* NAV BAR CSS */
+.navbar-brand {
+  margin-left: 3rem;
+}
+/* END OF NAV BAR CSS */
+
+/* START OF LOADER SPINNER */
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px; 
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+.loader-container {
+  height: 90vh;
+  position: relative;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* END OF LOADER SPINNER */
+
+/* POSTER for HOME, SIMILAR, AND RANDOM */
+
+.poster {
+  margin: 1rem;
+  padding: 0rem;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
+.poster-block {
+  position: relative;
+  margin: 10px;
+  color: #ffffff;
+  text-align: left;
+  background-color: #000000;
+  font-size: 16px;
+}
+.poster-block * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+.poster-block img {
+  position: relative;
+  max-width: 100%;
+  vertical-align: top;
+}
+.poster-block postercaption {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  padding: 20px 30px;
+}
+
+.poster-block postercaption:before,
+.poster-block postercaption:after {
+  width: 1px;
+  height: 0;
+}
+.poster-block postercaption:before {
+  right: 0;
+  top: 0;
+}
+.poster-block postercaption:after {
+  left: 0;
+  bottom: 0;
+}
+.poster-block h4,
+.poster-block p {
+  line-height: 1.2em;
+}
+
+.poster-block h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.poster-block p {
+  font-size: 0.8em;
+  font-weight: 500;
+  margin: 0 0 15px;
+}
+
+.poster-block:before,
+.poster-block:after,
+.poster-block postercaption:before,
+.poster-block postercaption:after {
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+  z-index: 1;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  opacity: 0.8;
+}
+.poster-block:before,
+.poster-block:after {
+  height: 1px;
+  width: 0%;
+}
+.poster-block:before {
+  top: 0;
+  left: 0;
+}
+.poster-block:after {
+  bottom: 0;
+  right: 0;
+}
+
+.poster-block:hover img,
+.poster-block.hover img {
+  opacity: 0.4;
+}
+.poster-block:hover postercaption,
+.poster-block.hover postercaption {
+  opacity: 1;
+}
+.poster-block:hover postercaption:before,
+.poster-block.hover postercaption:before,
+.poster-block:hover postercaption:after,
+.poster-block.hover postercaption:after {
+  height: 100%;
+}
+.poster-block:hover:before,
+.poster-block.hover:before,
+.poster-block:hover:after,
+.poster-block.hover:after {
+  width: 100%;
+}
+.poster-block:hover:before,
+.poster-block.hover:before,
+.poster-block:hover:after,
+.poster-block.hover:after,
+.poster-block:hover postercaption:before,
+.poster-block.hover postercaption:before,
+.poster-block:hover postercaption:after,
+.poster-block.hover postercaption:after {
+  opacity: 0.1;
+}
+
+.material-icons {
+  padding: 0 5px 0 0;
+}
+
+/* END OF POSTER for HOME, SIMILAR, AND RANDOM */
+
+
+/* VIDEO PLAYER - For MOVIE AND EPISODE PAGE */
+.player {
+  position: relative;
+  overflow: hidden;
+  padding-top: 45%;
+  margin: 0;
+  width: 100%;
+}
+
+.player iframe {
+    margin: 0;
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  max-height: 90vh;
+}
+/* END OF VIDEO PLAYER - For MOVIE AND EPISODE PAGE */
+
+/* BANNERS - Movie, series, episodes  */
+.banner {
+  padding: 15px;
+  min-height: 80vh;
+}
+
+.banner-left img {
+  margin: auto;
+  display: block;
+  position: relative;
+  max-height: auto;
+  max-width: 316px;
+  border-radius: 20px;
+}
+
+.banner-details {
+  margin-top: -15px;
+}
+
+.banner-rating-and-buttons {
+  padding: 10px 0;
+}
+
+.banner-summary {
+  margin-bottom: 20px;
+}
+/* END OF BANNERS */
+
+/* CAST */
+.scrolling-wrapper {
+  overflow-x: auto;
+} 
+
+.cast-card { 
+  background-color: black;
+  padding: 0;
+  margin: 5px;
+  min-width: 150px;
+}
+
+.cast-card > img {
+  display: inline-block;
+  border-radius: 10px;
+  max-height: 40vh;
+  width: 80%;
+  object-fit: cover;
+  padding: 0;
+}
+/* END OF CAST */
+
+/* FOOTER */
+.footer {
+  padding: 50px;
+  height: 20vh;
+}
+/* END OF FOOTER */
+
+/* SIMILAR */
+.similar {
+  padding-top: 100px;
+}
+/* END OF SIMILAR */
+
+/* HOMEPAGE CAROUSEL */
+.carousel-item {
+  max-height: 85vh;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.356);
+  padding: 10px;
+  border-radius: 10px;
+}
+/* END OF HOMEPAGE CAROUSEL */
+
+/* MODAL TRAILER */
+.modal {
+  min-height: 70vh;
+}
+.modal-body {
+  background-color: black;
+}
+
+.modal-radio-btn {
+  margin: 5px 0px !important;
+}
+/* END MODAL TRAILER */
+
+/* ICONS */
+.fav-icon:hover,
+.trailer-icon:hover,
+.random:hover {
+  transition: 0.5s ease;
+  -webkit-transition: color 0.3s;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.watch-movie-icon {
+  display: inline-block;
+  color: #c80000;
+  -webkit-transition: color 0.3s;
+  transition: 0.5s ease;
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+
+.watch-movie-icon:hover {
+    transition: 0.5s ease;
+  -webkit-transition: color 0.3s;
+  color: #ff0000;
+}
+
+.watch-series-icon {
+  display: inline-block;
+  color: #2e86eb;
+  -webkit-transition: color 0.3s;
+  transition: 0.5s ease;
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+
+.watch-series-icon:hover {
+    transition: 0.5s ease;
+  -webkit-transition: color 0.3s;
+  color: #81aae7;
+}
+/* END OF ICONS */
+
+/* BUTTONS */
+.round-buttons {
+  height: 50px;
+  width: 50px;
+  background-color: #3a3a3a;
+  border: 2px solid #acacac;
+  border-radius: 50px;
+  margin: 15px;
+}
+
+.round-buttons:hover {
+  background-color: #555555;
+}
+
+.round-buttons > span {
+  margin-top: 5px;
+}
+
+.removeWatchlist {
+  transition: 0.5s ease;
+  color: #c80000;
+}
+
+.removeWatchlist:hover {
+  transition: 0.5s ease;
+  color: #ff2a2a;
+}
+
+.btn.btn-rounded {
+  background-color: #3a3a3a;
+  border-radius: 50px;
+}
+
+.episodeBtnActive {
+  margin: 8px;
+  color: rgb(204, 204, 204);
+  margin: 0.2rem;
+  cursor: context-menu !important;
+}
+
+.episodeBtn {
+  margin: 8px;
+  border: 1px solid white;
+  transition: all 0.3s linear;
+}
+
+.episodeBtn:hover {
+  border: 1px solid #707070;
+  color: #bdbdbd;
+}
+
+@media only screen and (max-width: 1120px) {
+  .episodeBtn > span {
+  display: none;
+  }
+
+  .episodeBtnActive > span {
+  display: none;
+  }
+}
+
+button.randMore {
+  width: 100%;
+  margin: 50px 0 50px 0;
+  padding: 10px;
+}
+
+button.randMore:hover {
+  border: 1px solid #acacac;
+    background-color: #303030;
+}
+
+.btn.btn-rounded.watched {
+  background-color: #646464;
+}
+/* END OF BUTTONS */
+
+/* USER RATINGS - Movies, series, episodes */
+.box-low {
+  --v: calc(((18 / 5) * var(--p) - 90) * 1deg);
+  margin-right: 15px;
+  margin-bottom: -20px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 7px;
+  background: linear-gradient(var(--v), #f2f2f2 50%, transparent 0) 0 /
+      min(100%, (50 - var(--p)) * 100%),
+    linear-gradient(var(--v), transparent 50%, red 0) 0 /
+      min(100%, (var(--p) - 50) * 100%),
+    linear-gradient(to right, #f2f2f2 50%, red 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.box-med {
+  --v: calc(((18 / 5) * var(--p) - 90) * 1deg);
+  margin-right: 15px;
+  margin-bottom: -20px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 7px;
+  background: linear-gradient(var(--v), #f2f2f2 50%, transparent 0) 0 /
+      min(100%, (50 - var(--p)) * 100%),
+    linear-gradient(var(--v), transparent 50%, rgb(255, 166, 0) 0) 0 /
+      min(100%, (var(--p) - 50) * 100%),
+    linear-gradient(to right, #f2f2f2 50%, rgb(255, 166, 0) 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.box-high {
+  --v: calc(((18 / 5) * var(--p) - 90) * 1deg);
+  margin-right: 15px;
+  margin-bottom: -20px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 7px;
+  background: linear-gradient(var(--v), #f2f2f2 50%, transparent 0) 0 /
+      min(100%, (50 - var(--p)) * 100%),
+    linear-gradient(var(--v), transparent 50%, rgb(2, 236, 2) 0) 0 /
+      min(100%, (var(--p) - 50) * 100%),
+    linear-gradient(to right, #f2f2f2 50%, rgb(2, 236, 2) 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+/* END OF USER RATINGS - Movies, series, episodes */
+
+/* START SERVERS RADIO */
+
+.servers-radio {
+  display:flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.serverBTN {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+.server-label {
+  color: #9a929e;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+.serverBTN:checked + .server-label {
+  color: #ccc8ce;
+  background: #675f6b;
+}
+
+.radio-group {
+  border: solid 2px #675f6b;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* END SERVERS RADIO */
+
+/* FILTER HIDDENS - For trending, filmography, genre pages */
+.filter {
+  background-color: #000000;
+  min-height: 8vh;
+  top: 45px;
+  padding-top: 1vh;
+}
+.filter-profile {
+  top: 150px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.hiddenProfile {
+  display: none !important;
+}
+/* END of FILTER HIDDENS - For trending, filmography, genre pages */
+
+/* START INFO BOX */
+.extra-info {
+  border: 1px rgb(87, 87, 87) solid;
+  padding: 15px;
+  margin: 15px 15px 15px 0px;
+  border-radius: 10px;
+}
+
+.episode-controle {
+  border: 1px solid rgb(105, 105, 105);
+  border-radius: 15px;
+}
+
+.episode-controle:hover {
+background-color: rgb(44, 44, 44);
+}
+/* END INFO BOX */
+
+/* START BOOKMARK EMPTY */
+.empty-bookmarks {
+  margin: auto;
+  text-align: center;
+  max-width: 90vh;
+  border-radius: 10px;
+  margin-top: 7vh;
+  padding: 2rem;
+  border: 1px solid rgb(126, 126, 126);
+}
+/* END BOOKMARK EMPTY */

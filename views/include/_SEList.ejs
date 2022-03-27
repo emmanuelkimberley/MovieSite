@@ -1,0 +1,97 @@
+<!-- Check if its the Season or the episode page -->
+<!-- If it has a sepecific episode number, then it is an episode page. -->
+<% if (!data.episodeNum) { %>
+
+  <!-- THIS IS AN SEASON PAGE -->
+<div class="row">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <% for (let i = data.numberOfSeasons; i >= 1; i--) { %>
+
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link<%- i == data.numberOfSeasons ? ' active' : '' %>"
+        id="pills-season<%= i %>-tab"
+        data-toggle="pill"
+        href="#pills-season<%= i %>"
+        role="tab"
+        aria-controls="pills-season<%= i %>"
+        aria-selected="<%- i == data.numberOfSeasons ? ' true' : ' false' %>"
+        ><%= i %></a
+      >
+    </li>
+
+    <% } %>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <% for (let i = data.numberOfSeasons; i >= 1; i--) { %>
+    <div
+      class="tab-pane fade<%- i == data.numberOfSeasons ? ' show active' : '' %>"
+      id="pills-season<%= i %>"
+      role="tabpanel"
+      aria-labelledby="v-pills-season<%= i %>-tab"
+    >
+      <% for (let ep of data.allAiredEpisodes) { %> 
+        <% if (ep[0] === i) { %>
+          <a href="/episode/<%= data.id %>/<%= data.slug %>-<%= i %>x<%= ep[1] %>">
+            <button type="button" id='E<%= data.id %>-<%= i %>-<%= ep[1] %>' class="btn col-2 btn-rounded btn-dark episodeBtn">
+              E<span>pisode</span> <%= ep[1] %>
+            </button>
+          </a>
+        <% } %>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+
+</div>
+<% } else { %>
+
+  <!-- THIS IS AN EPISODE PAGE -->
+<div class="row">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <% for (let i = data.numberOfSeasons; i >= 1; i--) { %>
+
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link<%- i == data.seasonNum ? ' active' : '' %>"
+        id="pills-season<%= i %>-tab"
+        data-toggle="pill"
+        href="#pills-season<%= i %>"
+        role="tab"
+        aria-controls="pills-season<%= i %>"
+        aria-selected="<%- i == data.seasonNum ? ' true' : ' false' %>"
+        ><%= i %></a
+      >
+    </li>
+
+    <% } %>
+  </ul>
+
+  <div class="tab-content" id="pills-tabContent">
+    <!-- FOR EVERY SEASON OF THE SHOW -->
+    <% for (let i = data.numberOfSeasons; i >= 1; i--) { %>
+    <div
+      class="tab-pane fade<%- i == data.seasonNum ? ' show active' : '' %>"
+      id="pills-season<%= i %>"
+      role="tabpanel"
+      aria-labelledby="v-pills-season<%= i %>-tab"
+    >
+
+      <% for (let ep of data.allAiredEpisodes) { %> 
+        <% if (ep[0] === i) { %>
+      <a href="/episode/<%= data.id %>/<%= data.slug %>-<%= i %>x<%= ep[1] %>">
+        <!-- CHECK IF THE BUTTON IS FOR THE CURRENT PAGE, IF YES MAKE IT INACTIVE -->
+        <button type="button" id='E<%= data.id %>-<%= i %>-<%= ep[1] %>' class="btn col-2 btn-rounded btn-dark <%- ep[1] === data.episodeNum && ep[0] === data.seasonNum ? 'episodeBtnActive' : 'episodeBtn' %>">
+          E<span>pisode</span> <%= ep[1] %>
+        </button>
+      </a>
+      <% } } %>
+ 
+      </div>
+    <% } %>
+  </div>
+
+</div>
+
+<% } %>

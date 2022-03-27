@@ -1,0 +1,14 @@
+<% if ((parseFloat(rating) * 10) < 30) { %>
+<div class="box-low"   data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="<%= rating %>" style="--p:<%= (parseFloat(rating)) * 10 %>"></div>
+<% } else if (  ((parseFloat(rating) * 10) >= 30) && ((parseFloat(rating) * 10) < 60)) { %>
+<div class="box-med"   data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="<%= rating %>" style="--p:<%= (parseFloat(rating)) * 10 %>"></div>
+<% } else { %>
+<div class="box-high"   data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="<%= rating %>/10" style="--p:<%= (parseFloat(rating)) * 10 %>"></div>
+<% } %>
+ 

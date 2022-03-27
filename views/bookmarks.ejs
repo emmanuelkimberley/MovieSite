@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/static/stylecards.css" />
+<%- include('include/_header')%>
+<title><%= pageTitle %></title>
+</head>
+<body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-fluid">
+        <div class="row filter sticky-top">
+            <div class="col-3"><h1><%= pageTitle %></h1></div>
+            <div class="col-9"><%- include('include/_filtersAlt')%></div>
+        </div>
+        <div class="col-auto" id="mainContent">
+            <div class="row">
+                <div id='results'>
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('include/_spinner')%>
+    <%- include('include/_footer')%>
+    <!-- Include header -->
+    <script type="module" src="/static/bookmarkHandler.js"></script>
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+</body>
+</html>

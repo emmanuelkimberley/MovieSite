@@ -1,0 +1,51 @@
+<% if (servers) { %>
+  <div class="row">
+    <div id="player" class="player">
+      <iframe src="<%= servers[0].url %>" id='player-iframe' frameborder="0" marginwidth=0 marginheight=0 scrolling="no" allowfullscreen ></iframe>
+    </div>
+  </div>
+  <% if (data.hasOwnProperty('perviousEpisode')) { %>
+  <div class="row">
+    <% if (data.perviousEpisode) { %>
+    <a  class="col-1 col-md-push-6 episode-controle d-flex justify-content-center align-items-center" href="<%= data.perviousEpisode %>" >
+      <div>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+      </div>
+    </a>
+    <% } else { %>
+      <div class="col-1 col-md-push-6 d-flex justify-content-center align-items-center"></div>
+    <% } %>
+    <div class="col-10 col-md-pull-12">
+      <div class="servers-radio">
+        <div class="radio-group">
+            <% for (let i = 1;  i <= servers.length; i++) { %>
+              <input type="radio" class='serverBTN' id="option-<%= i %>" name="selector" link='<%= servers[(i-1)].url %>' <%= i === 1 ? 'checked' : '' %>>
+              <label class='server-label' for="option-<%= i %>">Server #<%= i %></label>
+            <% } %>
+        </div>
+      </div>
+    </div>
+    <% if (data.NextEpisode) { %>
+    <a class="col-1 col-md-push-6 episode-controle d-flex justify-content-center align-items-center" href="<%= data.NextEpisode %>" >
+      <div >
+        <span class="sr-only"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </div>
+    </a>
+    <% } else { %>
+      <div class="col-1 col-md-push-6 d-flex justify-content-center align-items-center"></div>
+    <% } %>
+  </div>
+
+  <% } else { %>
+    <div class="servers-radio">
+      <div class="radio-group">
+          <% for (let i = 1;  i <= servers.length; i++) { %>
+            <input type="radio" class='serverBTN' id="option-<%= i %>" name="selector" link='<%= servers[(i-1)].url %>' <%= i === 1 ? 'checked' : '' %>>
+            <label class='server-label' for="option-<%= i %>">Server #<%= i %></label>
+          <% } %>
+      </div>
+    </div>
+  <% } %> 
+<% } %> 

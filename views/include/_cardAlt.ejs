@@ -1,0 +1,213 @@
+
+<% if (card.type === 'movie') { %>
+<div id='card-<%= card.id %>' class="all_card All <%= card.type %>" job="<%= card.job %>">
+  <div class="info_section">
+    <div class="movie_header">
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>"> 
+      <img class="locandina" src="<%= card.imgSource %>"/></a>
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>"><h2><%= card.title %></h2></a>
+      <h5><%= card.releaseDate %> - Movie</h5>
+      <span class="minutes"><%= card.rating %> /10</span>
+      <p class="type">
+        <% for (let category of card.categories ) { %>
+        <a href="/genre/<%= category.id %>/<%= category.slug %>"><%= category.name %></a>, 
+        <%}%>
+      </p>
+    </div> 
+    <div class="movie_desc">
+      <% if (card.job) { %>
+        <p class="profile-job"> <b> As <%= card.job %></b></p>
+      <% } %>
+      <p class="text">
+        <%= card.summary %>
+      </p>
+    </div>
+
+    <div class="movie_social">
+      <ul>
+        <li><a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>">
+          <span
+          class="material-icons watch-movie-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Watch Now">
+          play_circle_filled</span></a></li>
+        <li>
+          <span
+          class="material-icons trailer-icon trailer-<%= card.type %>"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          tmdb="<%= card.id %>"
+          data-toggle="modal"
+          data-target="#modal<%= card.id %>"
+          title="Watch Trailer">theaters</span></li>
+        <li>
+          <span 
+          id="watchlistButton<%= card.id %>"
+          watchlist="<%= card.WLinfo %>"
+          tmdb="<%= card.id %>"
+          class="material-icons fav-icon addWatchlist"  
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Add to Bookmarks">
+          favorite_border</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blur_back" style="
+  background: url(<%=card.backdrop%>) no-repeat"></div>
+</div>
+<% } else if (card.type === 'series') { %>
+
+
+ 
+
+<div id='card-<%= card.id %>' class="all_card All <%= card.type %>"  job="<%= card.job %>">
+  <div class="info_section">
+    <div class="movie_header">
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>">
+      <img class="locandina" src="<%= card.imgSource %>"/></a>
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>"><h2><%= card.title %></h2></a>
+      <h5><%= card.releaseDate %> - Series</h5>
+      <span class="minutes"><%= card.rating %> /10</span>
+      <p class="type">
+        <% for (category of card.categories ) { %>
+        <a href="/genre/<%=  category.id %>/<%=  category.slug %>"><%= category.name %></a>, 
+        <%}%>
+      </p>
+    </div>
+    <div class="movie_desc">
+      <% if (card.job) { %>
+        <p class="profile-job"> As <%= card.job %></p>
+      <% } %>
+      <p class="text">
+        <%= card.summary %>
+      </p>
+    </div>
+
+    <div class="movie_social">
+      <ul>
+        <li><a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>">
+          <span 
+          class="material-icons watch-series-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Watch Now">play_circle_filled</span></a></li>
+        <li>
+          <span 
+          class="material-icons random"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          tmdb="<%= card.id %>"
+          title="Random Episode">shuffle</span></li> 
+        <li>
+          <span 
+          class="material-icons trailer-icon trailer-<%= card.type %>"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          tmdb="<%= card.id %>"
+          data-toggle="modal"
+          data-target="#modal<%= card.id %>"
+          title="Watch Trailer">theaters</span></li>
+        <li>          
+          <span 
+          id="watchlistButton<%= card.id %>"
+          watchlist="<%= card.WLinfo %>"
+          tmdb="<%= card.id %>"
+          class="material-icons fav-icon addWatchlist"  
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Add to Bookmarks">
+          favorite_border</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blur_back" style="
+  background: url(<%=card.backdrop%>) no-repeat"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% } else { %>
+
+
+<div id='card-<%= card.id %>' class="all_card All <%= card.type %>" >
+  <div class="info_section">
+    <div class="movie_header">
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>">
+      <img class="locandina" src="<%= card.imgSource %>"/></a>
+      <a href="/<%= card.type %>/<%= card.id %>/<%= card.slug %>"><h2><%= card.title %></h2></a>
+      <h5>Known for: <%= card.job %></h5>
+    </div>
+    <div class="movie_desc">
+    </div>
+    <div class="movie_social">
+      <ul>
+        <li><a href="/person/<%= card.id %>/<%= card.slug %>"><span class="material-icons">movie</span></a></li>
+        <li>          
+          <span 
+          id="watchlistButton<%= card.id %>"
+          watchlist="<%= card.WLinfo %>"
+          tmdb="<%= card.id %>"
+          class="material-icons fav-icon addWatchlist"  
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Add to Bookmarks">
+          favorite_border</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blur_back" style="
+  background: url(<%=card.backdrop%>)"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% } %>
+
+<!-- MODAL -->
+<div
+  class="modal fade"
+  id="modal<%= card.id %>"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div id='body-<%= card.id %>' class="modal-body mb-0 p-0">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /MODAL -->

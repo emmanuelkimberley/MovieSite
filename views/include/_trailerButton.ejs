@@ -1,0 +1,59 @@
+<button
+  type="button"
+  class="btn btn-secondary round-buttons trailer-<%= type %>"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  tmdb="<%= id %>"
+  data-toggle="modal"
+  data-target="#modal<%= id %>"
+  title="Watch Trailer"
+> 
+<span 
+  class="material-icons trailer-icon trailer-<%= type %>"
+  tmdb="<%= id %>"
+  data-toggle="modal"
+  data-target="#modal<%= id %>"
+  >theaters</span>
+</button>
+
+<!-- MODAL -->
+<div
+  class="modal fade"
+  id="modal<%= id %>"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div id='body-<%= id %>' class="modal-body mb-0 p-0">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /MODAL -->
+
+<!-- <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-6 col-xl-6 d-grid">
+                <button type="button" tmdb="${tmdbId}"  data-toggle="modal" data-target="#modal${tmdbId}" class="btn btn-dark btn-rounded trailer-movie">
+                    Watch the Trailer
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-grid">
+            ${watchListBTN.innerHTML}
+            </div>
+        </div>
+        
+
+        <div class="modal fade" id="modal${tmdbId}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body mb-0 p-0">
+                        <div class="player">
+                        <iframe id="${tmdbId}" src="" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->

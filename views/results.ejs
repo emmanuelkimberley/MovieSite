@@ -1,0 +1,34 @@
+<!-- used for SEARCH, CATEGORIES, FILMOGRAPHY, WATCHLIST -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/stylecards.css" />
+    <%- include('include/_header')%>
+    <title><%= pageTitle %></title>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-fluid">
+      <div class="row filter sticky-top">
+        <div class="col-3"><h1><%= pageTitle %></h1></div>
+        <div class="col-9"><%- include('include/_filtersAlt')%></div>
+      </div>
+      <div class="col-auto" id="mainContent">
+        <div class="row">
+          <div id='results'>
+              <% for (card of data) { %>
+                <%- include('include/_cardAlt', { card: card } )%>
+              <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('include/_spinner')%>
+    <script type="module" src="/static/infiniteScrollHandler.js"></script>
+    <!-- Include header -->
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+  </body>
+</html>

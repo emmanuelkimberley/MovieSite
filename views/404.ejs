@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include/_header')%>
+    <title>Not Found</title>
+        <style>
+
+          #mainContainer {
+            min-height: 92vh;
+            background: url('/static/notFoundBg.jpg') rgba(0, 0, 0, 0.5)
+              no-repeat center;
+            background-size: cover;
+            background-blend-mode: multiply;
+          }
+    </style>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-md">
+    </div>
+    <!-- Include header -->
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+  </body>
+</html>

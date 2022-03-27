@@ -1,0 +1,40 @@
+<div class="row d-flex flex-wrap align-items-center banner">
+  <div
+    class="
+      d-none d-sm-none d-md-block
+      col-md-6 col-lg-5 col-xl-4
+      banner-left"
+  >
+    <img
+      class="img-responsive"
+      src="<%= data.posterImg %>"
+      alt="<%= data.title %> - S<%= data.seasonNum %>E<%= data.episodeNum %>"
+    />
+  </div>
+  <div class="col-sm-12 col-md-6 col-lg-7 col-xl-8" >
+      <a href="/series/<%= data.id %>/<%= data.slug %>"><h1><%= data.title %></h1></a><br/> 
+    <h5>
+      Season <%= data.seasonNum %> Episode <%= data.episodeNum %> : "<%= data.epTitle %>"
+    </h5>
+    <br />
+ 
+    <div class="banner-details">
+      Aired on <%= data.releaseDate %> - 
+      <% for (let categorie of data.categories ) { %>
+      <a href="/genre/<%= categorie.id %>/<%= categorie.nameSlug %>"
+        ><%= categorie.name %></a>, <% } %>
+    </div>
+ 
+    <div class="banner-rating-and-buttons">
+      <%- include('_userRating', { rating: data.rating }) %>
+      <%- include('_trailerButton', { id: data.id, type: data.type }) %> 
+      <%- include('_randomButton') %>
+      <%- include('_BMButton', { id: data.id, WLinfo: data.WLinfo, type: data.type })%> 
+    </div>
+    <div class="banner-summary"><%= data.summary %></div>
+
+    <div class="director fs-5 text">
+      <%- include('_SEList', { data: data, id: data.id, slug: data.slug }) %> 
+    </div>
+  </div>
+</div> 

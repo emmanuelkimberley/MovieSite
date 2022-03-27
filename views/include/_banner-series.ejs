@@ -1,0 +1,46 @@
+<div class="row d-flex flex-wrap align-items-center banner">
+  <!-- Movie card - left column
+         -->
+  <!-- <div class="col-4 movie-card-left vidPosterHolder"> -->
+  <div
+    class="
+      d-none d-sm-none d-md-block
+      col-md-6 col-lg-5 col-xl-4
+      banner-left
+    "
+  > 
+    <img
+      class="img-responsive"
+      src="<%= data.posterImg %>"
+      alt="<%= data.title %>"
+    />
+  </div>
+  <!-- /Movie card - left column-->
+
+  <div class="col-sm-12 col-md-6 col-lg-7 col-xl-8" > 
+    
+    <h1><%= data.title %></h1>
+    <p><%= data.tagline %></p><br/>
+ 
+      <div class="banner-details">
+
+        <%= data.releaseDate %> - <%= data.status %> - 
+
+        <% for (let categorie of data.categories ) { %>
+        <a href="/genre/<%= categorie.id %>/<%= categorie.slug %>"
+          ><%= categorie.name %></a
+        >, <% } %>
+      </div>
+      <div class="banner-rating-and-buttons">
+          <%- include('_userRating', { rating: data.rating })%>
+        <%- include('_trailerButton', { id: data.id, type: data.type })%> 
+        <% if (data.numberOfSeasons) { %> 
+          <%- include('_randomButton')%>
+        <% } %> 
+        <%- include('_BMButton', { id: data.id, WLinfo: data.WLinfo, type: data.type })%> 
+      </div>
+      <div class="banner-summary"><%= data.summary %></div>
+      <%- include('_SEList', { data: data, id: data.id, slug: data.slug })%>
+  </div>
+  <!-- /Movie card - Right column-->
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include/_header')%>
+    <title>Random Movies</title>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-md">
+      <div class="col-auto" id="mainContent">
+        <%- include('include/_spinner')%>
+        <!-- MAIN CONTAINER -- CONTENT GOES HERE -->
+
+<!-- tending Movies section -->
+        <div class="row d-flex justify-content-center homeTrending"> <!-- popularMovies -->
+          <%- include('include/_posterBlockAlt', {posters: posters})%>
+        </div> <!-- /popularMovies -->
+<!-- / tending Movies section -->
+        <div class="row">
+          <div class="col-12">
+        <button type="button" class="btn btn-rounded btn-dark randMore"><h5 class='randMore'>Refresh the page for more</h5></button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <%- include('include/_footer')%>
+    <!-- Include header -->
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<div class="extra-info">
+    <div class="row">
+        <p><b>Original Title:</b><br/>
+        <%= serieData.original_name %></p>
+
+        <p><b>Country of Origine:</b>
+        <%= serieData.origin_country %></p>
+    </div>
+        <div class="latest-next">
+        <p><b>Latest Episode:</b><br/>
+        <%= serieData.last_episode_to_air.name %> (S<%= serieData.last_episode_to_air.season_number %>E<%= serieData.last_episode_to_air.episode_number %>)<br/>
+        Aired on: <%= serieData.last_episode_to_air.air_date %><br/></p>
+
+        <p><b>Next Episode:</b><br/>
+        <% if (serieData.next_episode_to_air) { %>
+        <%= serieData.next_episode_to_air.name %> (S<%= serieData.next_episode_to_air.season_number %>E<%= serieData.next_episode_to_air.episode_number %>)<br/>
+        Release date: <%= serieData.next_episode_to_air.air_date %>
+        <% } else { %>
+            No Data
+        <% } %></p>
+    </div>
+    <div class="row prod-comp">
+            <p><b>Production Companies:</b><br/>
+    <% for (let company of serieData.production_companies ) { %>
+        <%= company.name %> (<%= company.country %>), 
+    <% } %></p>
+
+    </div>
+    <% if (serieData.website) { %>
+    <div class="website">
+        <p><b>Website:</b><br/> <a href="<%= serieData.website %>" target='_blank'><%= serieData.title %>'s Website</a></p>
+    </div>
+    <% } %>
+</div>

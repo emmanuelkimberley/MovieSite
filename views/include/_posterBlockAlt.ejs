@@ -1,0 +1,13 @@
+<!-- REQUIRED TO USE:
+Array of objectas containing:
+- type (movie or serie)
+- title
+- id
+- titleSlug
+- imgSource
+-->
+
+<div class="row d-flex justify-content-center">
+  <% for (poster of posters) {%> <%- include('_posterAlt', {poster: poster})%>
+  <%}%>
+</div>

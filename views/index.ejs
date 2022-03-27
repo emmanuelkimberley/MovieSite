@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include/_header')%>
+    <title>Watch Movies and Series Online For Free - No Sign Up</title>
+    <meta name='description' content='Watch the latest series and movies online for free. No sign up, only HD videos streaming free online.'>
+    <meta name='keywords' content='free streaming, watch movie online free, 123Movies, putlockers, watch series online free, full movie, full episodes'>
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+    <div id="mainContainer" class="container-fluid">
+        <%- include('include/_spinner')%>
+        <!-- MAIN CONTAINER -- CONTENT GOES HERE -->
+        
+        <!-- Slider -->
+        <%- include('include/_slider', {slides: sliderData})%>
+        <!-- /Slider -->
+    </div>
+      <div id="mainContainer" class="container-md">
+        <div class="col-auto" id="mainContent">
+<!-- tending Movies section -->
+        <div class="row d-flex justify-content-center homeTrending"> <!-- popularMovies -->
+          <div class="col-12 text-center"><!-- morePopularMovies -->
+            <hr>
+            <h5>TRENDING MOVIES</h5>
+            <hr>
+          </div><!-- /morePopularMovies --> 
+          <%- include('include/_posterBlockAlt', {posters: moviesPosters})%>
+        </div> <!-- /popularMovies -->
+<!-- / tending Movies section -->
+
+<!-- tending Series section -->
+        <div class="row d-flex justify-content-center homeTrending"> <!-- popularMovies -->
+          <div class="col-12 text-center"><!-- morePopularMovies -->
+            <hr>
+            <h5>TRENDING SERIES</h5>
+            <hr>
+          </div><!-- /morePopularMovies -->
+          <%- include('include/_posterBlockAlt', {posters: seriesPosters})%>
+        </div> <!-- /popularMovies -->
+<!-- / tending Series section -->
+
+        </div>
+      </div>
+    <%- include('include/_footer')%>
+    </div>
+    <!-- Include header -->
+    <%- include('include/_scripts')%>
+    <!-- /Include header -->
+  </body>
+</html>

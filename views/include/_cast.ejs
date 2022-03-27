@@ -1,0 +1,27 @@
+<div class="cast-slider">
+  <div class="horizontal-scrollable">
+    <div
+      class="
+        row
+        text-center
+        scrolling-wrapper
+        flex-row flex-nowrap
+        mt-4
+        pb-4
+        pt-2
+      ">
+      <% for (cast of castList) { %>
+
+      <figure id='<%= cast.id %>' class="snip0015 col-3 cast-card">
+        <img src="<%= cast.profileImage %>" alt="<%= cast.name %>"/>
+        <figcaption>
+          <h4><%= cast.name %></h4>
+          <p>As <%= cast.character %></p>
+          <a href="/person/<%= cast.id %>/<%= cast.slug %>"></a>
+        </figcaption>			
+      </figure>
+
+      <% } %>
+    </div>
+  </div>
+</div>

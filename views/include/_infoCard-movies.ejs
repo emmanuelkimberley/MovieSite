@@ -1,0 +1,25 @@
+<div class="extra-info">
+    <div class="row">
+        <p><b>Original Title:</b><br/>
+        <%= movieData.original_title %></p>
+    </div>
+    <div class="row prod-comp">
+            <p><b>Production Companies:</b><br/>
+    <% for (let company of movieData.production_companies ) { %>
+        <%= company.name %> (<%= company.country %>), 
+    <% } %></p> 
+
+    </div>
+    <% if (movieData.website) { %>
+    <div class="website">
+        <p><b>Website:</b> <a href="<%= movieData.website %>" target='_blank'><%= movieData.title %>'s Website</a></p>
+    </div>
+    <% } %>
+    <div class="financial">
+        <p><b>Budget:</b><br/>
+        <%= movieData.budget %></p>
+
+        <p><b>Revenue:</b><br/>
+        <%= movieData.revenue %></p>
+    </div>
+</div>

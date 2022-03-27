@@ -1,0 +1,45 @@
+<div class="row d-flex flex-wrap align-items-center banner">
+  <!-- Movie card - left column
+         -->
+  <!-- <div class="col-4 movie-card-left vidPosterHolder"> -->
+  <div
+    class="
+      d-none d-sm-none d-md-block
+      col-md-6 col-lg-5 col-xl-4
+      banner-left
+    "
+  >
+    <img
+      class="img-responsive"
+      src="<%= data.imgSource %>"
+      alt="<%= data.name %>"
+    />
+  </div>
+  <!-- /Movie card - left column-->
+
+
+  <div
+    class="col-sm-12 col-md-6 col-lg-7 col-xl-8"
+  >
+    
+
+    <h1><%= data.name %></h1><br/>
+
+ 
+      <div class="banner-details">
+          Known for <span class='fs-4 text'><%= data.known_for %></span>
+      </div>
+      <div class="banner-rating-and-buttons">
+          Birthday: <%= data.birthday %> (<%= data.place_of_birth %>)
+          <% if (data.deathday) { %>
+             - Deathday: <%= data.deathday %>
+          <% } %> <br />
+          <% if (data.website) { %>
+             Personal Website: : <a href="<%= data.website %>" target='_blank'><%= data.website %></a>
+          <% } %> <br />
+      </div>
+      <div class="banner-summary"><%= data.biography %></div>
+      
+  </div>
+  <!-- /Movie card - Right column-->
+</div>

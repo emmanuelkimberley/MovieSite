@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include/_header')%>
+    <style>
+      .banner {
+        background: url('<%= serieData.bannerBackdrop %>') rgba(0, 0, 0, 0.8)
+          no-repeat center;
+        background-size: cover;
+        background-blend-mode: multiply;
+      }
+      /* width */
+      ::-webkit-scrollbar {
+        height: 8px;
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 5px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(170, 170, 170);
+        border-radius: 5px;
+      }
+    </style>
+    <title>Watch <%= serieData.title %> online - All Episodes for free. No sign up</title>
+    <meta name='description' content='Stream all episodes of <%= serieData.title %> for free in HD.'>
+    <meta name='keywords' content='<%= serieData.title %> free streaming, watch <%= serieData.title %> online free, <%= serieData.Name %> streaming full episodes, 123Movies, putlockers, watch <%= serieData.title %> online free, <%= serieData.title %> full episodes free'>
+  
+  </head>
+  <body>
+    <%- include('include/_menu')%>
+
+    <div id="mainContainer" class="container-fluid">
+      <!-- Container fluid start here -->
+      <div class="col-auto" id="mainContent">
+        <!-- FIX SPINNER AND INCLUDE -->
+            <%- include('include/_spinner')%>
+
+        <!-- player -->
+        <!-- include('include/_video', { stream: stream } )  -->
+        <!-- /player -->
+
+        <!-- SERVERS OPTIONS -->
+        <!-- /SERVERS OPTIONS -->
+
+        <!-- Movie card -->
+        <%- include('include/_banner-series', { data: serieData }) %>
+        <!-- /Movie card -->
+      </div>
+
+      <!-- Container fluid ENDS here -->
+    </div>
+
+    <div class="container">
+      <!-- Regular container starts here -->
+
+      <div class="ad">
+        <!-- Ad starts here -->
+        <!-- Ad ENDS here -->
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-3">
+          <!-- Movie budget Original Language, revenu -->
+            <%- include('include/_infoCard-series')%>
+        </div>
+        <div class="col-12 col-lg-9 castHolder">
+          <%- include('include/_cast', { castList: serieData.cast } )%>
+        </div>
+      </div>
+
+      <div class="similar">
+        <%- include('include/_posterBlockAlt', { posters: serieData.similar } )%>
+      </div>
+
+      <!-- footer starts here -->
+      <%- include('include/_footer')%>
+      <!-- footer ENDS here -->
+
+      <!-- Regular container ENDS here -->
+    </div>
+
+    <!-- Include scripts -->
+    <script type="module" src="/static/watchedHandlerEpisodes.js"></script>
+    <%- include('include/_scripts')%>
+    <!-- /Include scripts -->
+  </body>
+</html>
